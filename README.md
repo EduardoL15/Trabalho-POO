@@ -13,7 +13,7 @@ Este projeto é um sistema de controle de matrículas que permite a administraç
 	 
 ## Como usar
 
-Para usar o sistema de controle de matrículas em cursos, siga os seguintes passos:
+Para usar o sistema de controle de matrículas, siga os seguintes passos:
 
 1. Execute o programa, e em seguida escolha entre as opções de cursos fornecidas: `Engenharia de Software`, `Ciências da Computação` ou `Análise e Desenvolvimento de Sistemas`.
 2. Digite o nome do aluno, a matrícula e a idade.
