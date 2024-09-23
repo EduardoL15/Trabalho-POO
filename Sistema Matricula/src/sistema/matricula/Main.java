@@ -11,7 +11,7 @@ public class Main extends JFrame {
     private JTextField nomeAlunoField, matriculaAlunoField, idadeAlunoField;
     private JButton matricularButton;
 
-    public SistemaCursosSwing() {
+    public Main() {
         sistemaMatricula = new SistemaMatricula();
         setTitle("Sistema de Matrícula");
         setSize(400, 300);
@@ -104,7 +104,7 @@ public class Main extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            SistemaCursosSwing sistema = new SistemaCursosSwing();
+            Main sistema = new Main();
             sistema.setVisible(true);
         });
     }
