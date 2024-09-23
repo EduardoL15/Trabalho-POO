@@ -1,6 +1,6 @@
 package sistema.matricula;
 
-public class Curso {
+public class Curso{
     private String nome;
     private int cargahoraria;
 	private double preco;
