@@ -73,7 +73,7 @@ public class SistemaCursosSwing extends JFrame {
     }
 
     private class MatricularAlunoListener implements ActionListener {
-        @Override
+    	 @Override
         public void actionPerformed(ActionEvent e) {
             try {
                 String nome = nomeAlunoField.getText();
@@ -82,7 +82,7 @@ public class SistemaCursosSwing extends JFrame {
 
                 Aluno aluno = new Aluno(nome, matricula, idade);
                 String cursoNome = (String) cursoComboBox.getSelectedItem();
-                Curso cursoSelecionado = null;
+                Curso cursoSelecionado = (Curso) cursoComboBox.getSelectedItem(); 
                 for (Curso curso : sistemaMatricula.getCursos()) {
                     if (curso.getNome().equals(cursoNome)) {
                         cursoSelecionado = curso;
@@ -90,9 +90,10 @@ public class SistemaCursosSwing extends JFrame {
                     }
                 }
 
-                sistemaMatricula.matricularAluno(aluno, cursoSelecionado);
+                if(sistemaMatricula.matricularAluno(aluno, cursoSelecionado)) {
                 JOptionPane.showMessageDialog(null, "Aluno matriculado com sucesso!");
-
+                }
+                
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Idade inválida, deve ser um número.");
             } catch (Exception ex) {
@@ -108,4 +109,3 @@ public class SistemaCursosSwing extends JFrame {
         });
     }
 }
-
