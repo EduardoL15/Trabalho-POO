@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 // Classe Main, extensão da classe JFrame para criar uma janela gráfica no Java Swing
 public class Main extends JFrame {
     private SistemaMatricula sistemaMatricula; // instância do sistema de matrículas
-    private JComboBox<String> cursoComboBox; // selecionar os cursos disponíveis
+    private JComboBox<Curso> cursoComboBox; // adiciona os objetos cursos diretamente
     private JTextField nomeAlunoField, matriculaAlunoField, idadeAlunoField; // usuário inserir as informações 
     private JButton matricularButton; // botão matricular
 
@@ -24,9 +24,10 @@ public class Main extends JFrame {
 
         JLabel cursoLabel = new JLabel("Curso:"); // exibe o texto na interface
         cursoComboBox = new JComboBox<>(); // exibe a lista de cursos disponíveis
-        for (Curso curso : sistemaMatricula.getCursos()) { 
-            cursoComboBox.addItem(curso.getNome());
+        for (Curso curso : sistemaMatricula.getCursos()) {
+            cursoComboBox.addItem(curso);  // Adiciona o objeto Curso diretamente
         }
+
 
         JLabel nomeLabel = new JLabel("Nome do Aluno:"); 
         nomeAlunoField = new JTextField(20); // tamanho do campo de texto
@@ -82,18 +83,18 @@ public class Main extends JFrame {
                 int idade = Integer.parseInt(idadeAlunoField.getText());
 
                 Aluno aluno = new Aluno(nome, matricula, idade);
-                String cursoNome = (String) cursoComboBox.getSelectedItem();
-                Curso cursoSelecionado = null; 
-                for (Curso curso : sistemaMatricula.getCursos()) {
-                    if (curso.getNome().equals(cursoNome)) { // comparar as strings
-                        cursoSelecionado = curso;
-                        break;
-                    }
-                }
+                Curso cursoSelecionado = (Curso) cursoComboBox.getSelectedItem(); // O curso selecionado é obtido diretamente
 
                 if(sistemaMatricula.matricularAluno(aluno, cursoSelecionado)) {
                 JOptionPane.showMessageDialog(null, "Aluno matriculado com sucesso!");
+                
+             // Limpar os campos após o sucesso na matrícula
+                nomeAlunoField.setText("");
+                matriculaAlunoField.setText("");
+                idadeAlunoField.setText("");
                 }
+             
+
                 
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Idade inválida, deve ser um número.");
