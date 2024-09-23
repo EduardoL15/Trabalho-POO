@@ -5,6 +5,7 @@ public class Aluno {
     private String matricula;
     private int idade;
 
+    // Métodos Getters e Setters
     public Aluno(String nome, String matricula, int idade) {
         this.nome = nome;
         this.matricula = matricula;
@@ -35,10 +36,12 @@ public class Aluno {
     	this.idade = idade;
     }
 
+    // Método para validar se o aluno tem 16 anos ou mais
     public boolean validarIdade() {
         return idade >= 16;
     }
 
+    // Método para validar o tamanho da matrícula de mínimo 10 caracteres
     public boolean validarMatricula() {
         return matricula.length() >= 10;
     }
