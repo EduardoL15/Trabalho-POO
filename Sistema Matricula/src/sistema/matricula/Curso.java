@@ -13,6 +13,7 @@ public class Curso{
         this.preco = preco;
     }
 
+    // Métodos Getters e Setters
     public String getNome() {
         return nome;
     }
@@ -37,17 +38,19 @@ public class Curso{
     	this.preco = preco;
     }
 
+    // Método para verificar se há vagas disponíveis
     public boolean temVagas() {
         return vagas > 0;
     }
 
+    // Método para matricular aluno e reduzir as vagas
     public void matricularAluno() {
         if (temVagas()) {
             vagas--;
         }
     }
     
-    @Override
+    // Exibe uma descrição do curso no formato desejado
     public String toString() {
         return nome + " - Carga Horária: " + cargahoraria + "h - Preço: R$ " + preco;
     }
