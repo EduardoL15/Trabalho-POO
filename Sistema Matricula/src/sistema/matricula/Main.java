@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SistemaCursosSwing extends JFrame {
+public class Main extends JFrame {
     private SistemaMatricula sistemaMatricula;
     private JComboBox<String> cursoComboBox;
     private JTextField nomeAlunoField, matriculaAlunoField, idadeAlunoField;
