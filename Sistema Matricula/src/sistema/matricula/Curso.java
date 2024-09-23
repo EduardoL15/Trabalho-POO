@@ -51,7 +51,9 @@ public class Curso{
     }
     
     // Exibe uma descrição do curso no formato desejado
+    @Override
     public String toString() {
-        return nome + " - Carga Horária: " + cargahoraria + "h - Preço: R$ " + preco;
+        return nome;  // Retorna o nome do curso para ser exibido no JComboBox
     }
+
 }
