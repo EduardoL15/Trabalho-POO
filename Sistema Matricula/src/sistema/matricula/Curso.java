@@ -3,7 +3,7 @@ package sistema.matricula;
 public class Curso{
     private String nome;
     private int cargahoraria;
-	private double preco;
+    private double preco;
     private int vagas;
 
     public Curso(String nome, int vagas, int cargahoraria, double preco) {
