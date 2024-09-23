@@ -82,7 +82,7 @@ public class Main extends JFrame {
 
                 Aluno aluno = new Aluno(nome, matricula, idade);
                 String cursoNome = (String) cursoComboBox.getSelectedItem();
-                Curso cursoSelecionado = (Curso) cursoComboBox.getSelectedItem(); 
+                Curso cursoSelecionado = null; 
                 for (Curso curso : sistemaMatricula.getCursos()) {
                     if (curso.getNome().equals(cursoNome)) {
                         cursoSelecionado = curso;
