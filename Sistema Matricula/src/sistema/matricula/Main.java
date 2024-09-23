@@ -5,30 +5,31 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// Classe Main, extensão da classe JFrame para criar uma janela gráfica no Java Swing
 public class Main extends JFrame {
-    private SistemaMatricula sistemaMatricula;
-    private JComboBox<String> cursoComboBox;
-    private JTextField nomeAlunoField, matriculaAlunoField, idadeAlunoField;
-    private JButton matricularButton;
+    private SistemaMatricula sistemaMatricula; // instância do sistema de matrículas
+    private JComboBox<String> cursoComboBox; // selecionar os cursos disponíveis
+    private JTextField nomeAlunoField, matriculaAlunoField, idadeAlunoField; // usuário inserir as informações 
+    private JButton matricularButton; // botão matricular
 
     public Main() {
         sistemaMatricula = new SistemaMatricula();
-        setTitle("Sistema de Matrícula");
-        setSize(400, 300);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setTitle("Sistema de Matrícula"); // título da janela
+        setSize(400, 300); // tamanho
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // encerra o programa quando a janela for fechada
         setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(10, 10, 10, 10);
-        gbc.fill = GridBagConstraints.HORIZONTAL;
+        GridBagConstraints gbc = new GridBagConstraints(); // layout do Java Swing
+        gbc.insets = new Insets(10, 10, 10, 10); // espaçamento do GridBagLayout
+        gbc.fill = GridBagConstraints.HORIZONTAL; // expandir a página horizontalmente
 
-        JLabel cursoLabel = new JLabel("Curso:");
-        cursoComboBox = new JComboBox<>();
-        for (Curso curso : sistemaMatricula.getCursos()) {
+        JLabel cursoLabel = new JLabel("Curso:"); // exibe o texto na interface
+        cursoComboBox = new JComboBox<>(); // exibe a lista de cursos disponíveis
+        for (Curso curso : sistemaMatricula.getCursos()) { 
             cursoComboBox.addItem(curso.getNome());
         }
 
-        JLabel nomeLabel = new JLabel("Nome do Aluno:");
-        nomeAlunoField = new JTextField(20);
+        JLabel nomeLabel = new JLabel("Nome do Aluno:"); 
+        nomeAlunoField = new JTextField(20); // tamanho do campo de texto
 
         JLabel matriculaLabel = new JLabel("Matrícula:");
         matriculaAlunoField = new JTextField(20);
@@ -36,10 +37,10 @@ public class Main extends JFrame {
         JLabel idadeLabel = new JLabel("Idade:");
         idadeAlunoField = new JTextField(5);
 
-        matricularButton = new JButton("Matricular");
+        matricularButton = new JButton("Matricular"); // botão para matricular
         matricularButton.addActionListener(new MatricularAlunoListener());
 
-        gbc.gridx = 0;
+        gbc.gridx = 0; // posição do layout
         gbc.gridy = 0;
         add(cursoLabel, gbc);
 
@@ -72,10 +73,10 @@ public class Main extends JFrame {
         add(matricularButton, gbc);
     }
 
+    // Classe com a interface ActionListener
     private class MatricularAlunoListener implements ActionListener {
-    	 @Override
         public void actionPerformed(ActionEvent e) {
-            try {
+            try {    // inserir os dados do aluno
                 String nome = nomeAlunoField.getText();
                 String matricula = matriculaAlunoField.getText();
                 int idade = Integer.parseInt(idadeAlunoField.getText());
@@ -84,7 +85,7 @@ public class Main extends JFrame {
                 String cursoNome = (String) cursoComboBox.getSelectedItem();
                 Curso cursoSelecionado = null; 
                 for (Curso curso : sistemaMatricula.getCursos()) {
-                    if (curso.getNome().equals(cursoNome)) {
+                    if (curso.getNome().equals(cursoNome)) { // comparar as strings
                         cursoSelecionado = curso;
                         break;
                     }
@@ -105,7 +106,7 @@ public class Main extends JFrame {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             Main sistema = new Main();
-            sistema.setVisible(true);
+            sistema.setVisible(true); // exibir a janela principal
         });
     }
 }
