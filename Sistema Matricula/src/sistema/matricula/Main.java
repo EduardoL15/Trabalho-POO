@@ -15,7 +15,7 @@ public class Main extends JFrame {
     public Main() {
         sistemaMatricula = new SistemaMatricula();
         setTitle("Sistema de Matrícula"); // título da janela
-        setSize(400, 300); // tamanho
+        setSize(700, 400); // tamanho
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // encerra o programa quando a janela for fechada
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints(); // layout do Java Swing
