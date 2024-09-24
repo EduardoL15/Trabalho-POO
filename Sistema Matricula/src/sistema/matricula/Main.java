@@ -87,14 +87,11 @@ public class Main extends JFrame {
 
                 if(sistemaMatricula.matricularAluno(aluno, cursoSelecionado)) {
                 JOptionPane.showMessageDialog(null, "Aluno matriculado com sucesso!");
-                
+                }                
              // Limpar os campos após o sucesso na matrícula
                 nomeAlunoField.setText("");
                 matriculaAlunoField.setText("");
                 idadeAlunoField.setText("");
-                }
-             
-
                 
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Idade inválida, deve ser um número.");
