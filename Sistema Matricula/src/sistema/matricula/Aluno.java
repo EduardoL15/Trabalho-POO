@@ -5,13 +5,14 @@ public class Aluno {
     private String matricula;
     private int idade;
 
-    // Métodos Getters e Setters
+    
     public Aluno(String nome, String matricula, int idade) {
         this.nome = nome;
         this.matricula = matricula;
         this.idade = idade;
     }
-    
+
+    // Métodos Getters e Setters
     public String getNome() {
     	return nome;
     }
